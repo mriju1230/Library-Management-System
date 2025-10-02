@@ -19,7 +19,7 @@
         <br>
         {{-- form --}}
         <div class="row">
-            <div class="col-xl-10">
+            <div class="col-xl-6">
 
                 @include('layouts.components.message')
 

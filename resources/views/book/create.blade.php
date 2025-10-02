@@ -17,7 +17,7 @@
         
         {{-- form --}}
         <div class="row">
-            <div class="col-xl-6">
+            <div class="col-xl-10">
 
                 @include('layouts.components.message')
 

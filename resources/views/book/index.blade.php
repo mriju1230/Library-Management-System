@@ -30,8 +30,9 @@
                                         <th>#</th>
                                         <th>Title</th>
                                         <th>Author</th>
-                                        <th>Copy</th>
+                                        <th>Copy</th>                                        
                                         <th>ISBN</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -41,8 +42,9 @@
                                             <td>{{ $key+1}}</td>
                                             <td>{{ $book->title}}</td>
                                             <td>{{ $book->author}}</td>
-                                            <td>{{ $book->copy}}</td>
+                                            <td>{{ $book->copy}}</td>                                            
                                             <td>{{ $book->isbn}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($book->created_at)->diffForHumans()}}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-info" href=""> <i class="fa fa-eye"></i></a>
                                                 <a class="btn btn-sm btn-warning" href=""> <i class="fa fa-edit"></i></a>

@@ -28,27 +28,33 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Photo</th>
                                         <th>Student ID</th>
                                         <th>Name</th>
                                         <th>Emial</th>
                                         <th>Phone</th>
                                         <th>Address</th>
+                                        <th>Create At</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                       @foreach ($students as $key => $student)
-                                        <td>{{ $key+1}}</td>
-                                        <td>{{$student->student_id}}</td>                                
-                                        <td>{{$student->name}}</td>                                
-                                        <td>{{$student->email}}</td>                                   
-                                        <td>{{$student->phone}}</td>                                   
-                                        <td>{{$student->address}}</td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary" href="" > <i class="fa fa-eye"></i> </a>
-                                            <a class="btn btn-sm btn-warning" href="" > <i class="fa fa-edit"></i> </a>
-                                            <a class="btn btn-sm btn-danger" href="" > <i class="fa fa-trash"></i> </a>
-                                        </td>                               
+                                        <tr class="align-middle">
+                                            <td>{{ $key+1}}</td>
+                                            <td><img style="width:60px;height:60px;" src="/media/student/{{$student->photo}}" alt=""></td>                                
+                                            <td>{{$student->student_id}}</td>                                
+                                            <td>{{$student->name}}</td>                                
+                                            <td>{{$student->email}}</td>                                   
+                                            <td>{{$student->phone}}</td>                                   
+                                            <td>{{$student->address}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($student->created_at)->diffForHumans()}}</td>
+                                            <td>
+                                                <a class="btn btn-sm btn-primary" href="" > <i class="fa fa-eye"></i> </a>
+                                                <a class="btn btn-sm btn-warning" href="" > <i class="fa fa-edit"></i> </a>
+                                                <a class="btn btn-sm btn-danger" href="" > <i class="fa fa-trash"></i> </a>
+                                            </td>   
+                                        </tr>                            
                                       @endforeach                             
                                 </tbody>
                             </table>

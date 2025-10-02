@@ -35,7 +35,7 @@ class StudentController extends Controller
         $request->validate([
             'name'          => "required",
             'email'          => "required|email",
-            'phone'          => "required|starts_with:013, 014, 017, 016, 018, 019 ",
+            'phone'          => "required ",
         ]);
 
         $image = $request->file('photo');
