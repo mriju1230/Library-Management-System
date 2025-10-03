@@ -28,9 +28,11 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Cover</th>
                                         <th>Title</th>
                                         <th>Author</th>
-                                        <th>Copy</th>                                        
+                                        <th>Copy</th>                                      
+                                        <th>Available</th>                                      
                                         <th>ISBN</th>
                                         <th>Created At</th>
                                         <th>Action</th>
@@ -40,9 +42,11 @@
                                     @foreach ($books as $key=>$book)
                                         <tr>
                                             <td>{{ $key+1}}</td>
+                                            <td><img width="100px" src="{{ URL::to('media/book/'. $book->cover)}}" alt=""></td>
                                             <td>{{ $book->title}}</td>
                                             <td>{{ $book->author}}</td>
-                                            <td>{{ $book->copy}}</td>                                            
+                                            <td>{{ $book->copy}}</td>                                         
+                                            <td>{{ $book->available_copy}}</td>                                         
                                             <td>{{ $book->isbn}}</td>
                                             <td>{{ \Carbon\Carbon::parse($book->created_at)->diffForHumans()}}</td>
                                             <td>

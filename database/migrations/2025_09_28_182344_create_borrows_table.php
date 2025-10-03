@@ -13,8 +13,21 @@ return new class extends Migration
     {
         Schema::create('borrows', function (Blueprint $table) {
             $table->id();
+
+            // Relationships
+            $table->foreignId('student_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('book_id')->constrained()->cascadeOnDelete();
+
+            // Dates
+            $table->dateTime('issue_date')->useCurrent(); // defaults to now
+            $table->dateTime('return_date')->nullable();  // can be null at first
+
+            // Status (true = active, false = returned)
+            $table->string('status')->default('pending');
+
             $table->timestamps();
         });
+
     }
 
     /**

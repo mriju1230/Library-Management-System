@@ -28,23 +28,11 @@
                         <form action="{{ route('borrow.student') }}" method="POST">
                             @csrf
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Student ID</label>
+                                <label class="col-lg-3 col-form-label">Student ID/Email/Phone</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="student_id" class="form-control">
+                                    <input type="text" name="search" class="form-control">
                                 </div>
-                            </div> 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Email</label>
-                                <div class="col-lg-9">
-                                    <input type="email" name="email" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Phone</label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="phone" class="form-control">
-                                </div>
-                            </div>
+                            </div>                           
                                                       
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -63,7 +51,7 @@
                         <h5 class="card-title mb-0">{{ $student->name }}</h5>
                     </div>
                     <div class="card-body">
-                        <a class="btn btn-primary" href="#">Assign Book</a>
+                        <a class="btn btn-primary" href="{{ route('borrow.assign', $student->id) }}">Assign Book</a>
                     </div>
                 </div>
             </div>
